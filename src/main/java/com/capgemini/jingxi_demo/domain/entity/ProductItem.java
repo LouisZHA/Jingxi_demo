@@ -22,8 +22,7 @@ public class ProductItem {
     @Column(name = "price", nullable = false)
     private String price;
 
-    @Column(name = "count", nullable = false)
+    @Column(name = "quantity", nullable = false)
     private String quantity;
-
 
 }

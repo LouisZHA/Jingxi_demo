@@ -16,7 +16,9 @@
 
 package com.capgemini.jingxi_demo.apis.controller;
 
+import com.capgemini.jingxi_demo.domain.entity.ProductItem;
 import com.capgemini.jingxi_demo.domain.entity.User;
+import com.capgemini.jingxi_demo.domain.entity.UserItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class BasicController {
 
+    // http://127.0.0.1:8080/html
+    @RequestMapping("/html")
+    public String html(){
+        return "index.html";
+    }
+
     // http://127.0.0.1:8080/hello?name=lisi
     @RequestMapping("/hello")
     @ResponseBody
@@ -36,33 +44,38 @@ public class BasicController {
         return "Hello " + name;
     }
 
-    // http://127.0.0.1:8080/user
-    @RequestMapping("/user")
+    // http://127.0.0.1:8080/product
+    @RequestMapping("/product")
     @ResponseBody
-    public User user() {
-        User user = new User();
-        user.setName("theonefx");
-        user.setAge(666);
-        return user;
+    public ProductItem productItem() {
+        ProductItem product = new ProductItem();
+        product.setName("book");
+        product.setDescription("about springboot");
+        product.setQuantity("111");
+        product.setPrice("2.44");
+        return product;
     }
 
-    // http://127.0.0.1:8080/save_user?name=newName&age=11
-    @RequestMapping("/save_user")
+    // http://127.0.0.1:8080/productitem?name=newName&description=newdescription&price=null&quantity=0
+    @RequestMapping("/productitem")
     @ResponseBody
-    public String saveUser(User u) {
-        return "user will save: name=" + u.getName() + ", age=" + u.getAge();
+    public ProductItem saveProduct(ProductItem product) {
+        // return "product will save: name=" + product.getName() + " description=" + product.getDescription() + "  price=" + product.getPrice() + "  quantity=" + product.getQuantity();
+        return product;
     }
 
-    // http://127.0.0.1:8080/html
-    @RequestMapping("/html")
-    public String html(){
-        return "index.html";
-    }
+    // http://127.0.0.1:8080/productitem?name=book&description=aboutspringboot&price=11&quantity=20
 
     @ModelAttribute
     public void parseUser(@RequestParam(name = "name", defaultValue = "unknown user") String name
-            , @RequestParam(name = "age", defaultValue = "12") Integer age, User user) {
-        user.setName("zhangsan");
-        user.setAge(18);
+                          , @RequestParam(name = "description", defaultValue = "unknown description") String description
+                          , @RequestParam(name = "price", defaultValue = "unknown price") String price
+                          , @RequestParam(name = "quantity", defaultValue = "unknown quantity") String quantity
+                          , ProductItem p) {
+        p.setName(name);
+        p.setDescription(description);
+        p.setPrice(price);
+        p.setQuantity(quantity);
     }
+
 }

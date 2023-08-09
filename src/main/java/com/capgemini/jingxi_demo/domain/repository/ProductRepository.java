@@ -19,14 +19,28 @@ public interface ProductRepository extends JpaRepository<ProductItem, String>{
     @Query(value = "select * from productitem where name = :name", nativeQuery = true)
     List<ProductItem> GetProductByName(@Param("name") String name);
 
-    @Transactional
-    @Modifying
-    @Query(value="update productitem set count = :count where name = :name", nativeQuery = true)
-    void ModifyProductByNameWithCount(@Param("name") String name, @Param("count") int count);
+    List<ProductItem> findByNameContaining(String name);
+    List<ProductItem> findByDescriptionContaining(String name);
 
     @Transactional
     @Modifying
-    @Query(value="update productitem set price = :price where name = :name", nativeQuery = true)
-    void ModifyProductByNameWithPrice(@Param("name") String name, @Param("price") BigDecimal price);
+    @Query(value="update productitem set quantity = :quantity where id = :id", nativeQuery = true)
+    void ModifyProductQuantityById(@Param("id") int id, @Param("quantity") int quantity);
+
+    @Transactional
+    @Modifying
+    @Query(value="update productitem set price = :price where id = :id", nativeQuery = true)
+    void ModifyProductPriceById(@Param("id") int id, @Param("price") BigDecimal price);
+
+    @Transactional
+    @Modifying
+    @Query(value="update productitem set description = :description where id = :id", nativeQuery = true)
+    void ModifyProductDescriptionById(@Param("id") int id, @Param("description") String description);
+
+    @Transactional
+    @Modifying
+    @Query(value="update productitem set name = :name where id = :id", nativeQuery = true)
+    void ModifyProductNameById(@Param("id") int id, @Param("name") String name);
+
 
 }

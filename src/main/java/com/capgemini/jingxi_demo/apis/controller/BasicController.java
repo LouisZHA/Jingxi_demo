@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.capgemini.jingxi_demo.demos.web;
+package com.capgemini.jingxi_demo.apis.controller;
 
+import com.capgemini.jingxi_demo.domain.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

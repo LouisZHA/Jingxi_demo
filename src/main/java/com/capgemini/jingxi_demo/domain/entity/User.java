@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.capgemini.jingxi_demo.demos.web;
+package com.capgemini.jingxi_demo.domain.entity;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>

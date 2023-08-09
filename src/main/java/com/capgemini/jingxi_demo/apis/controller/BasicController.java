@@ -17,8 +17,6 @@
 package com.capgemini.jingxi_demo.apis.controller;
 
 import com.capgemini.jingxi_demo.domain.entity.ProductItem;
-import com.capgemini.jingxi_demo.domain.entity.User;
-import com.capgemini.jingxi_demo.domain.entity.UserItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

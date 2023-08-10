@@ -1,6 +1,6 @@
 package com.capgemini.jingxi_demo.representation.controller;
 
-import com.capgemini.jingxi_demo.infrastructure.entity.ProductItem;
+import com.capgemini.jingxi_demo.infrastructure.entity.ProductEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -24,8 +24,8 @@ public class BasicController {
     // http://127.0.0.1:8080/product
     @RequestMapping("/product")
     @ResponseBody
-    public ProductItem productItem() {
-        ProductItem product = new ProductItem();
+    public ProductEntity productItem() {
+        ProductEntity product = new ProductEntity();
         product.setName("book");
         product.setDescription("about s  pringboot");
         product.setQuantity(111);
@@ -36,7 +36,7 @@ public class BasicController {
     // http://127.0.0.1:8080/productitem?name=newName&description=newdescription
     @RequestMapping("/productitem")
     @ResponseBody
-    public ProductItem saveProduct(ProductItem product) {
+    public ProductEntity saveProduct(ProductEntity product) {
         return product;
     }
 
@@ -46,7 +46,7 @@ public class BasicController {
             , @RequestParam(name = "description", defaultValue = "unknown description") String description
             , @RequestParam(name = "price", defaultValue = "111") BigDecimal price
             , @RequestParam(name = "quantity", defaultValue = "0") int quantity
-            , ProductItem p) {
+            , ProductEntity p) {
         p.setName(name);
         p.setDescription(description);
         p.setPrice(price);

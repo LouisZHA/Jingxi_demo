@@ -1,6 +1,6 @@
 package com.capgemini.jingxi_demo.infrastructure.repository;
 
-import com.capgemini.jingxi_demo.infrastructure.entity.ProductItem;
+import com.capgemini.jingxi_demo.infrastructure.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,15 +12,15 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductItem, String>{
+public interface ProductRepository extends JpaRepository<ProductEntity, String>{
     @Query(value = "SELECT * FROM productitem", nativeQuery = true)
-    List<ProductItem> GetAllProductData();
+    List<ProductEntity> GetAllProductData();
 
     @Query(value = "select * from productitem where name = :name", nativeQuery = true)
-    List<ProductItem> GetProductByName(@Param("name") String name);
+    List<ProductEntity> GetProductByName(@Param("name") String name);
 
-    List<ProductItem> findByNameContaining(String name);
-    List<ProductItem> findByDescriptionContaining(String name);
+    List<ProductEntity> findByNameContaining(String name);
+    List<ProductEntity> findByDescriptionContaining(String name);
 
     @Transactional
     @Modifying

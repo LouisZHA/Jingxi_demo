@@ -1,7 +1,7 @@
 package com.capgemini.jingxi_demo.infrastructure.repository;
 
 
-import com.capgemini.jingxi_demo.infrastructure.entity.UserItem;
+import com.capgemini.jingxi_demo.infrastructure.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserItem, String> {
+public interface UserRepository extends JpaRepository<UserEntity, String> {
     @Query(value = "SELECT * FROM useritem", nativeQuery = true)
-    List<UserItem> GetAllUserData();
+    List<UserEntity> GetAllUserData();
 
     @Query(value = "select * from useritem where name = :name", nativeQuery = true)
-    List<UserItem> GetUserByName(@Param("name") String name);
+    List<UserEntity> GetUserByName(@Param("name") String name);
 
     @Transactional
     @Modifying

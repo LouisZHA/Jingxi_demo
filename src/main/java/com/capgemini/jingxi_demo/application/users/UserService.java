@@ -1,6 +1,6 @@
-package com.capgemini.jingxi_demo.application.service;
+package com.capgemini.jingxi_demo.application.users;
 
-import com.capgemini.jingxi_demo.infrastructure.entity.UserItem;
+import com.capgemini.jingxi_demo.infrastructure.entity.UserEntity;
 import com.capgemini.jingxi_demo.infrastructure.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +14,12 @@ public class UserService {
     private UserRepository userRepository;
 
     // 增
-    public void SaveByUserName(UserItem u){
+    public void SaveByUserName(UserEntity u){
         userRepository.save(u);
     }
 
     // 删
-    public void DeleteByUserName(UserItem u){
+    public void DeleteByUserName(UserEntity u){
         userRepository.delete(u);
     }
 
@@ -29,11 +29,11 @@ public class UserService {
     }
 
     // 查
-    public List<UserItem> GetAll(){
+    public List<UserEntity> GetAll(){
         return userRepository.GetAllUserData();
     }
 
-    public List<UserItem> GetByUserName(String name){
+    public List<UserEntity> GetByUserName(String name){
         return userRepository.GetUserByName(name);
     }
 

@@ -1,7 +1,7 @@
 package com.capgemini.jingxi_demo.application.service;
 
-import com.capgemini.jingxi_demo.domain.entity.UserItem;
-import com.capgemini.jingxi_demo.domain.repository.UserRepository;
+import com.capgemini.jingxi_demo.infrastructure.entity.UserItem;
+import com.capgemini.jingxi_demo.infrastructure.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

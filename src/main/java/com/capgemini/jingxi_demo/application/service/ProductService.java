@@ -1,8 +1,7 @@
 package com.capgemini.jingxi_demo.application.service;
 
-import com.capgemini.jingxi_demo.domain.entity.ProductItem;
-import com.capgemini.jingxi_demo.domain.entity.UserItem;
-import com.capgemini.jingxi_demo.domain.repository.ProductRepository;
+import com.capgemini.jingxi_demo.infrastructure.entity.ProductItem;
+import com.capgemini.jingxi_demo.infrastructure.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     // 当添加商品时，输入商品的名称，描述，价格，系统应该创建商品，同时创建对应的库存数量为0。
-    public void SaveProductByNameDescriptionPrice(ProductItem productItem){
+    public void SaveProduct(ProductItem productItem){
         productRepository.save(productItem);
     }
 

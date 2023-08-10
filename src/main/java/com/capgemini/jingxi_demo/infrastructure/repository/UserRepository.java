@@ -1,7 +1,7 @@
-package com.capgemini.jingxi_demo.domain.repository;
+package com.capgemini.jingxi_demo.infrastructure.repository;
 
 
-import com.capgemini.jingxi_demo.domain.entity.UserItem;
+import com.capgemini.jingxi_demo.infrastructure.entity.UserItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

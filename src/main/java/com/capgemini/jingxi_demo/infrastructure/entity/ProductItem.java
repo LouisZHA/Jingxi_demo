@@ -1,4 +1,4 @@
-package com.capgemini.jingxi_demo.domain.entity;
+package com.capgemini.jingxi_demo.infrastructure.entity;
 
 import lombok.Data;
 

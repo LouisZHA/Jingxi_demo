@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring")
 public interface ProductMapping {
 
 //    @Mapping(source = "id", target = "id")
@@ -15,8 +15,10 @@ public interface ProductMapping {
 //    @Mapping(source = "price", target = "id")
 //    @Mapping(source = "quantity", target = "realName")
 
+//    @Mapping(target = "realname",ignore = true)
+
     ProductEntity toProductEntity(ProductAddDTO productAddDTO);
 
-//    ProductAddDTO toProductAddDTO(ProductEntity productEntity);
+    ProductAddDTO toProductAddDTO(ProductEntity productEntity);
 
 }

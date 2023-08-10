@@ -1,6 +1,8 @@
 package com.capgemini.jingxi_demo.infrastructure.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -8,6 +10,8 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Table(name = "productitem")
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductEntity {
 
     @Id

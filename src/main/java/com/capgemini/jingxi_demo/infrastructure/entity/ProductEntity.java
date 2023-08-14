@@ -1,6 +1,7 @@
 package com.capgemini.jingxi_demo.infrastructure.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 @Table(name = "productitem")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ProductEntity {
 
     @Id
@@ -19,16 +21,16 @@ public class ProductEntity {
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name", unique = true)
     private String name;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "quantity", nullable = false, columnDefinition = "INT default 0")
+    @Column(name = "quantity", columnDefinition = "INT default 0")
     private int quantity;
 
 }

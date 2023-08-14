@@ -1,15 +1,17 @@
-package com.capgemini.jingxi_demo.representation.controller;
+package com.capgemini.jingxi_demo.representation.controller.admin;
 
 import com.capgemini.jingxi_demo.application.products.ProductService;
 import com.capgemini.jingxi_demo.application.products.dto.ProductAddDTO;
 import com.capgemini.jingxi_demo.application.products.dto.mapping.ProductMapping;
 import com.capgemini.jingxi_demo.infrastructure.entity.ProductEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/product")
-public class ProductController {
+@RequestMapping("/admin/product")
+@RequiredArgsConstructor
+public class AdminProductController {
 
     @Autowired
     private ProductService productService;
@@ -17,23 +19,33 @@ public class ProductController {
     @Autowired
     private ProductMapping productMapping;
 
+    // http://127.0.0.1:8080/admin/product/add
 
-    // http://127.0.0.1:8080/product/addproduct
+    @RequestMapping(value = "add")
+    public String html(){
+        return "this is http://127.0.0.1:8080/admin/product/add. Add the product by sending a post";
+    }
 
-    @RequestMapping(value = "addproduct", method = RequestMethod.POST, consumes = "application/json")
+    // 添加商品
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public String addproduct(@RequestBody ProductAddDTO productAddDTO){
         System.out.println("++++++++++++++++++++");
         System.out.println(productAddDTO);
         ProductEntity productEntity = productMapping.toProductEntity(productAddDTO);
-        productService.SaveProduct(productEntity);
+        System.out.println(productEntity);
+        productService.saveProduct(productEntity);
         System.out.println("====================");
         System.out.println(productEntity);
         return "succssful add a product" + productEntity;
     }
 
 
+    // 修改商品信息
 
+    // 删除商品
+
+    // 订单完成时：减少库存信息的真实数量
 
 
 

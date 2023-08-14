@@ -14,26 +14,26 @@ public class UserService {
     private UserRepository userRepository;
 
     // 增
-    public void SaveByUserName(UserEntity u){
+    public void saveByUserName(UserEntity u){
         userRepository.save(u);
     }
 
     // 删
-    public void DeleteByUserName(UserEntity u){
+    public void deleteByUserName(UserEntity u){
         userRepository.delete(u);
     }
 
     // 改
-    public void ModifyName(String name, int id){
+    public void modifyName(String name, int id){
         userRepository.ModifyUserByidWithName(name, id);
     }
 
     // 查
-    public List<UserEntity> GetAll(){
+    public List<UserEntity> getAll(){
         return userRepository.GetAllUserData();
     }
 
-    public List<UserEntity> GetByUserName(String name){
+    public List<UserEntity> getByUserName(String name){
         return userRepository.GetUserByName(name);
     }
 

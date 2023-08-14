@@ -1,4 +1,4 @@
-package com.capgemini.jingxi_demo.representation.controller;
+package com.capgemini.jingxi_demo.representation.controller.other;
 
 import com.capgemini.jingxi_demo.infrastructure.entity.ProductEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +27,7 @@ public class BasicController {
     public ProductEntity productItem() {
         ProductEntity product = new ProductEntity();
         product.setName("book");
-        product.setDescription("about s  pringboot");
+        product.setDescription("about springboot");
         product.setQuantity(111);
         product.setPrice(BigDecimal.valueOf(2.44));
         return product;

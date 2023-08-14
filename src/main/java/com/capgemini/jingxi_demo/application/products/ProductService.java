@@ -16,12 +16,12 @@ public class ProductService {
     private ProductRepository productRepository;
 
     // 当添加商品时，输入商品的名称，描述，价格，系统应该创建商品，同时创建对应的库存数量为0。
-    public void SaveProduct(ProductEntity productEntity){
+    public void saveProduct(ProductEntity productEntity){
         productRepository.save(productEntity);
     }
 
     // 当查询商品时，输入查询文本，系统应该对商品的名称和描述进行模糊查询，并返回包含查询文本的商品。
-    public List<ProductEntity> GetByKeyword(String keyword){
+    public List<ProductEntity> getByKeyword(String keyword){
         List<ProductEntity> L1 = productRepository.findByNameContaining(keyword);
         List<ProductEntity> L2 = productRepository.findByDescriptionContaining(keyword);
         return Stream.concat(L1.stream(), L2.stream()).collect(Collectors.toList());
@@ -38,8 +38,5 @@ public class ProductService {
         productRepository.ModifyProductQuantityById(id, productEntity.getQuantity());
         productRepository.ModifyProductPriceById(id, productEntity.getPrice());
     };
-
-
-
 
 }

@@ -1,4 +1,4 @@
-package com.capgemini.jingxi_demo.representation.controller;
+package com.capgemini.jingxi_demo.representation.controller.other;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

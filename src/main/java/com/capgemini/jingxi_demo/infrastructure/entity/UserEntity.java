@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Data
-@Entity
 @Table(name = "useritem")
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class UserEntity {
 
     @Id

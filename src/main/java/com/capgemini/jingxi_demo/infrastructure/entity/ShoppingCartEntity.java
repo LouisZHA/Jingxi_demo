@@ -9,10 +9,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Entity
 @Table(name = "shoppingcart")
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class ShoppingCartEntity {
 
     // 表的内容： 自增id ；用户id；产品id（bigint）；商品名称；商品照片路径（varchar（255））； 产品数量（int）；产品价格（money）；创建时间（datetime）

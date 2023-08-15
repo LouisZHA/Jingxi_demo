@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -37,6 +38,9 @@ public class ProductService {
         }
         productRepository.ModifyProductQuantityById(id, productEntity.getQuantity());
         productRepository.ModifyProductPriceById(id, productEntity.getPrice());
-    };
+    }
+
+    // 根据 ID查询商品数据
+    public Optional<ProductEntity> findById(long id){ return productRepository.findById(id);}
 
 }

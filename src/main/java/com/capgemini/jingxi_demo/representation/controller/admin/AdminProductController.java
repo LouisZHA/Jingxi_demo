@@ -40,7 +40,6 @@ public class AdminProductController {
         return "succssful add a product" + productEntity;
     }
 
-
     // 修改商品信息
 
     // 删除商品

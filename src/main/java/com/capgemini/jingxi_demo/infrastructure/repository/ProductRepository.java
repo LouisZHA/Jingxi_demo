@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, String>{
+public interface ProductRepository extends JpaRepository<ProductEntity, Long>{
     @Query(value = "SELECT * FROM productitem", nativeQuery = true)
     List<ProductEntity> GetAllProductData();
 

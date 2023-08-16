@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Data
@@ -12,12 +14,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ShoppingCartDTO {
     private Long id;
-    private String productid;
+    private BigInteger productid;
     private Integer quantity;
     private String productname;
     private BigDecimal amount;
-    private String userid;
+    private BigInteger userid;
     private String image;
-    private LocalDateTime updatedate;
+    private Timestamp updatedate;
+    private BigDecimal price;
 
 }

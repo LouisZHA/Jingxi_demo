@@ -50,15 +50,6 @@ class JingxiDemoApplicationTests {
             System.out.println(item.toString());
         }
 
-        System.out.println("============================");
-        ProductEntity product = new ProductEntity();
-        product.setName("book");
-        product.setDescription("aboutspringboot");
-        product.setQuantity(111);
-        product.setPrice(BigDecimal.valueOf(2.44));
-        System.out.println(product);
-        productService.saveProduct(product);
-
     }
 
 }

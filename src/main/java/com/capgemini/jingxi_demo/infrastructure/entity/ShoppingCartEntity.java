@@ -3,15 +3,22 @@ package com.capgemini.jingxi_demo.infrastructure.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Data
 @Table(name = "shoppingcart")
 @AllArgsConstructor
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
+@DynamicInsert
 @Entity
 public class ShoppingCartEntity {
 
@@ -23,7 +30,7 @@ public class ShoppingCartEntity {
     private Long id;
 
     @Column(name = "product_id")
-    private String productid;
+    private BigInteger productid;
 
     @Column(name = "quantity")
     private Integer quantity;
@@ -35,12 +42,17 @@ public class ShoppingCartEntity {
     private BigDecimal amount;
 
     @Column(name = "user_id")
-    private String userid;
+    private BigInteger userid;
 
     @Column(name = "image")
     private String image;
 
+    // @Column(name="CREATE_TIME",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
+    @LastModifiedDate
     @Column(name = "update_date")
-    private LocalDateTime updatedate;
+    private Timestamp updatedate;
+
+    @Column(name = "price")
+    private BigDecimal price;
 
 }

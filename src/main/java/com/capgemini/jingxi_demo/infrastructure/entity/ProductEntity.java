@@ -32,4 +32,8 @@ public class ProductEntity {
     @Column(name = "quantity", columnDefinition = "INT default 0")
     private int quantity;
 
+    @Column(name = "image")
+    private String image;
+
+
 }

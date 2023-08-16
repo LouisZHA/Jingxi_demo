@@ -30,14 +30,8 @@ public class AdminProductController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public String addproduct(@RequestBody ProductAddDTO productAddDTO){
-        System.out.println("++++++++++++++++++++");
-        System.out.println(productAddDTO);
-        ProductEntity productEntity = productMapping.toProductEntity(productAddDTO);
-        System.out.println(productEntity);
-        productService.saveProduct(productEntity);
-        System.out.println("====================");
-        System.out.println(productEntity);
-        return "succssful add a product" + productEntity;
+        productService.saveProduct(productAddDTO);
+        return "succssful add a product" + productAddDTO;
     }
 
     // 修改商品信息

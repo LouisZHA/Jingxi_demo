@@ -14,9 +14,6 @@ public class UserProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private ProductMapping productMapping;
-
     // http://127.0.0.1:8080/user/product/add
 
     @RequestMapping(value = "add")
@@ -27,13 +24,8 @@ public class UserProductController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public String addproduct(@RequestBody ProductAddDTO productAddDTO){
-        System.out.println("++++++++++++++++++++");
-        System.out.println(productAddDTO);
-        ProductEntity productEntity = productMapping.toProductEntity(productAddDTO);
-        productService.saveProduct(productEntity);
-        System.out.println("====================");
-        System.out.println(productEntity);
-        return "succssful add a product" + productEntity;
+        productService.saveProduct(productAddDTO);
+        return "succssful add a product" + productAddDTO;
     }
 
     // 订单完成时：减少库存信息的真实数量

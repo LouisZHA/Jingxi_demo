@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShoppingCartDTO {
+
     private Long id;
-    private BigInteger productid;
+    private BigInteger product_id;
     private Integer quantity;
-    private String productname;
+    private String product_name;
     private BigDecimal amount;
-    private BigInteger userid;
+    private BigInteger user_id;
     private String image;
-    private Timestamp updatedate;
+    private Timestamp update_date;
     private BigDecimal price;
 
 }

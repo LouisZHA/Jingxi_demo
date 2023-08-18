@@ -1,8 +1,6 @@
 package com.capgemini.jingxi_demo.infrastructure.repository;
 
-import com.capgemini.jingxi_demo.infrastructure.entity.ProductEntity;
 import com.capgemini.jingxi_demo.infrastructure.entity.ShoppingCartEntity;
-import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,7 +13,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 @Repository
-public interface ShoppingCartRepository extends JpaRepository<ShoppingCartEntity, String> {
+public interface ShoppingCartRepository extends JpaRepository<ShoppingCartEntity, Long> {
 
     // 根据用户ID查看购物车全部商品
     @Query(value = "select * from shoppingcart where user_id = :id", nativeQuery = true)

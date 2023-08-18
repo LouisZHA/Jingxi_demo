@@ -1,26 +1,24 @@
-package com.capgemini.jingxi_demo.application.shoppingcart.dto;
+package com.capgemini.jingxi_demo.application.order.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShoppingCartAddDTO {
+public class OrderDetailDTO {
 
     private Long id;
-    private BigInteger product_id;
-    private Integer quantity;
+    private BigInteger order_id;
     private String product_name;
+    private BigInteger product_id;
+    private int quantity;
     private BigDecimal amount;
-    private BigInteger user_id;
     private String image;
-    private Timestamp update_date;
-    private BigDecimal price;
 
 }

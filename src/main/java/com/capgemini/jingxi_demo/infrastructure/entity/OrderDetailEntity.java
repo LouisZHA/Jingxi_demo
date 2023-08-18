@@ -1,24 +1,21 @@
 package com.capgemini.jingxi_demo.infrastructure.entity;
 
-import com.capgemini.jingxi_demo.common.enums.DeliveryStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.sql.Timestamp;
 
 @Data
-@Table(name = "delivery")
+@Table(name = "orderdetail")
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicInsert
 @Entity
-public class DeliveryEntity {
+public class OrderDetailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,15 +25,19 @@ public class DeliveryEntity {
     @Column(name = "order_id", unique = true)
     private BigInteger order_id;
 
-    @Column(name = "delivery_status")
-    private DeliveryStatusEnum delivery_status;
+    @Column(name = "product_name")
+    private String product_name;
 
-    @CreatedDate
-    @Column(name = "creat_time")
-    private Timestamp creat_time;
+    @Column(name = "product_id", unique = true)
+    private BigInteger product_id;
 
-    @LastModifiedDate
-    @Column(name = "update_time")
-    private Timestamp update_time;
+    @Column(name = "quantity", unique = true)
+    private int quantity;
+
+    @Column(name = "amount")
+    private BigDecimal amount;
+
+    @Column(name = "image")
+    private String image;
 
 }

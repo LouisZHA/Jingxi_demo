@@ -10,9 +10,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, String> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
     @Query(value = "SELECT * FROM useritem", nativeQuery = true)
     List<UserEntity> GetAllUserData();
 
@@ -24,4 +25,5 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
     @Query(value="update useritem set name = :name where id = :id", nativeQuery = true)
     void ModifyUserByidWithName(@Param("name") String name, @Param("id") int id);
 
+    Optional<UserEntity> findByName(String name);
 }

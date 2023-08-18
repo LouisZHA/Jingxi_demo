@@ -11,7 +11,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Data
 @Table(name = "shoppingcart")
@@ -29,20 +28,20 @@ public class ShoppingCartEntity {
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @Column(name = "product_id")
-    private BigInteger productid;
+    @Column(name = "product_id", unique = true)
+    private BigInteger product_id;
 
     @Column(name = "quantity")
     private Integer quantity;
 
     @Column(name = "product_name")
-    private String productname;
+    private String product_name;
 
     @Column(name = "amount")
     private BigDecimal amount;
 
     @Column(name = "user_id")
-    private BigInteger userid;
+    private BigInteger user_id;
 
     @Column(name = "image")
     private String image;
@@ -50,7 +49,7 @@ public class ShoppingCartEntity {
     // @Column(name="CREATE_TIME",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP",insertable = false,updatable = false)
     @LastModifiedDate
     @Column(name = "update_date")
-    private Timestamp updatedate;
+    private Timestamp update_date;
 
     @Column(name = "price")
     private BigDecimal price;

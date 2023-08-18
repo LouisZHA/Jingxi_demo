@@ -1,7 +1,6 @@
 package com.capgemini.jingxi_demo.infrastructure.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -35,5 +34,7 @@ public class ProductEntity {
     @Column(name = "image")
     private String image;
 
+    @Column(name = "quantity_locked")
+    private int quantity_locked;
 
 }

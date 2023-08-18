@@ -1,25 +1,27 @@
 package com.capgemini.jingxi_demo.representation.controller.courier;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.capgemini.jingxi_demo.application.delivery.DeliveryService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
 
 @RestController
 @RequestMapping("/courier/delivery")
+@RequiredArgsConstructor
 public class CourierDeliveryController {
 
-    // 创建快递单（在支付完成的时刻），设置快递单状态，记录时间
+    @Autowired
+    private DeliveryService deliveryService;
 
-    // 撤销快递单
+    // 修改快递单状态 ： 权限3，4，5(/status)
+    @RequestMapping(value = "status", method = RequestMethod.PUT)
+    @ResponseBody
+    public void updateDeliveryStatus(@RequestParam BigInteger delivery_id, @RequestParam Integer delivery_status){
+        if (delivery_status.equals(3) | delivery_status.equals(4) | delivery_status.equals(5)){
+            deliveryService.updateDeliveryStatus(delivery_id, delivery_status);
+        }
+    }
 
-    // 修改订单 （快递员修改快递单状态），记录时间
-
-    // 完成订单（用户操作）
-
-    // 根据用户查询快递单
-
-    // 根据订单id查询快递单
-
-    // 根据快递单号查询快递
-
-    // 在货物送到后，且在用户签收的时刻，修改快递单状态（签收），记录时间
 }

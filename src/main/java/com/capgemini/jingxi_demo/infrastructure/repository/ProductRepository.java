@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity, Long>{
@@ -21,25 +22,36 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long>{
 
     List<ProductEntity> findByNameContaining(String name);
     List<ProductEntity> findByDescriptionContaining(String name);
-
-    @Transactional
-    @Modifying
-    @Query(value="update productitem set quantity = :quantity where id = :id", nativeQuery = true)
-    void ModifyProductQuantityById(@Param("id") int id, @Param("quantity") int quantity);
+    Optional<ProductEntity> findByName(String name);
 
     @Transactional
     @Modifying
     @Query(value="update productitem set price = :price where id = :id", nativeQuery = true)
-    void ModifyProductPriceById(@Param("id") int id, @Param("price") BigDecimal price);
+    void ModifyProductPriceById(@Param("id") Long id, @Param("price") BigDecimal price);
 
     @Transactional
     @Modifying
     @Query(value="update productitem set description = :description where id = :id", nativeQuery = true)
-    void ModifyProductDescriptionById(@Param("id") int id, @Param("description") String description);
+    void ModifyProductDescriptionById(@Param("id") Long id, @Param("description") String description);
 
     @Transactional
     @Modifying
     @Query(value="update productitem set name = :name where id = :id", nativeQuery = true)
-    void ModifyProductNameById(@Param("id") int id, @Param("name") String name);
+    void ModifyProductNameById(@Param("id") Long id, @Param("name") String name);
+
+    @Transactional
+    @Modifying
+    @Query(value="update productitem set image = :image where id = :id", nativeQuery = true)
+    void ModifyProductImageById(@Param("id") Long id, @Param("image") String image);
+
+    @Transactional
+    @Modifying
+    @Query(value="update productitem set quantity = :quantity where id = :id", nativeQuery = true)
+    void ModifyProductQuantityById(@Param("id") Long id, @Param("quantity") int quantity);
+
+    @Transactional
+    @Modifying
+    @Query(value="update productitem set quantity_locked = :quantity_locked where id = :id", nativeQuery = true)
+    void ModifyProductQuantity_lockedById(@Param("id") Long id, @Param("quantity_locked") int quantity_locked);
 
 }

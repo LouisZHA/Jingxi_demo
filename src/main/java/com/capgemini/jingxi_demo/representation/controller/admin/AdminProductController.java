@@ -2,11 +2,14 @@ package com.capgemini.jingxi_demo.representation.controller.admin;
 
 import com.capgemini.jingxi_demo.application.products.ProductService;
 import com.capgemini.jingxi_demo.application.products.dto.ProductAddDTO;
-import com.capgemini.jingxi_demo.application.products.dto.mapping.ProductMapping;
+import com.capgemini.jingxi_demo.application.products.dto.ProductDTO;
 import com.capgemini.jingxi_demo.infrastructure.entity.ProductEntity;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/admin/product")
@@ -16,17 +19,7 @@ public class AdminProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private ProductMapping productMapping;
-
-    // http://127.0.0.1:8080/admin/product/add
-
-    @RequestMapping(value = "add")
-    public String html(){
-        return "this is http://127.0.0.1:8080/admin/product/add. Add the product by sending a post";
-    }
-
-    // 添加商品
+    // 添加商品:
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public String addproduct(@RequestBody ProductAddDTO productAddDTO){
@@ -34,13 +27,33 @@ public class AdminProductController {
         return "succssful add a product" + productAddDTO;
     }
 
-    // 修改商品信息
+    // 修改商品信息：
+    @RequestMapping(method = RequestMethod.PUT)
+    @ResponseBody
+    public void update(@RequestBody ProductDTO productDTO){
+        productService.ModifyProduct(productDTO);
+    }
 
     // 删除商品
+    @RequestMapping(method = RequestMethod.DELETE)
+    @ResponseBody
+    public void delete(@RequestParam Long id){
+        productService.deleteById(id);
+    }
 
-    // 订单完成时：减少库存信息的真实数量
+    // 修改锁定库存数量
+    @RequestMapping(value = "quantity_locked", method = RequestMethod.PUT)
+    @ResponseBody
+    public void updateQuantity_locked(@RequestParam Long id, @RequestParam Integer Quantity_locked){
+        productService.ModifyQuantity_locked(id, Quantity_locked);
+    }
 
-
+    // 修改商品库存数量
+    @RequestMapping(value = "quantity", method = RequestMethod.PUT)
+    @ResponseBody
+    public void updateQuantity(@RequestParam Long id, @RequestParam Integer Quantity){
+        productService.ModifyQuantity(id, Quantity);
+    }
 
 
 }

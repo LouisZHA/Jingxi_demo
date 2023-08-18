@@ -25,30 +25,6 @@ class JingxiDemoApplicationTests {
     @Test
     void contextLoads() {
 
-        System.out.println("============================");
-        System.out.println("save user by name");
-        UserEntity userEntity = new UserEntity();
-        userEntity.setName("abc");
-        System.out.println(userEntity);
-        userService.saveByUserName(userEntity);
-
-        System.out.println("get user all");
-        List<UserEntity> temp1 = userService.getAll();
-        for (int i = 0; i < temp1.size(); i++){
-            UserEntity item = temp1.get(i);
-            System.out.println(item.toString());
-        }
-
-        UserEntity userEntity3 = new UserEntity();
-        userEntity3.setName("abc");
-        userService.deleteByUserName(userEntity3);
-
-        System.out.println("get user all");
-        List<UserEntity> temp2 = userService.getAll();
-        for (int i = 0; i < temp2.size(); i++){
-            UserEntity item = temp2.get(i);
-            System.out.println(item.toString());
-        }
 
     }
 
